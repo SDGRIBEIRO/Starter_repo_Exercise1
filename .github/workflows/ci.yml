@@ -2,7 +2,18 @@ name: CI
 
 on: #trigger
   
-  workflow_dispatch: #manual button to run this workflow
+  #workflow_dispatch: #manual button to run this workflow
+  
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Deployment environment
+        required: true
+        type: choice
+        options:
+          - staging
+          - production
+  
   push:
     branches:
       - main
