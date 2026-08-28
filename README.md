@@ -1,2 +1,3 @@
 # Starter_repo_Exercise1
-## Training test
+
+## Testing the automatic GitHub Actions workflow
