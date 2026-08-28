@@ -17,3 +17,7 @@ jobs:
           pwd #print the working directory / folder
       - name: List files
         run: ls -la
+      
+      # Prints the contents of src/index.html to the workflow log
+      - name: Show index.html
+        run: cat src/index.html
