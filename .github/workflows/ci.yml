@@ -7,7 +7,8 @@ on: #trigger
     branches:
       - main
     paths:
-      - 'src/**'
+    #  - 'src/**'
+      - 'src/*'
 
 jobs:
   hello: # name of the job
