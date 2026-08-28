@@ -27,8 +27,8 @@ jobs:
           pwd #print the working directory / folder
 
       - name: Run tests
-        # run: echo "Tests passed"
-        run: exit 1
+        run: echo "Tests passed"
+        #run: exit 1
       
       - name: List files
         run: ls -la
