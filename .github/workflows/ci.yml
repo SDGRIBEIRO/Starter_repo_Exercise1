@@ -108,6 +108,10 @@ jobs:
           name: web-dist
           path: ./dist
   
+      - name: Show selected environment
+        run: echo "Selected environment is ${{ inputs.environment }}"
+      
+      
       - name: Show deployment configuration
         run: echo "Deploying to $REGION"
   
