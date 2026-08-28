@@ -1,10 +1,14 @@
 name: CI
 
 on: #trigger
+  
   workflow_dispatch: #manual button to run this workflow
   push:
     branches:
       - main
+    paths:
+      - 'src/**'
+
 jobs:
   hello: # name of the job
     runs-on: ubuntu-latest
