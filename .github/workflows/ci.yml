@@ -10,6 +10,9 @@ on: #trigger
       - 'src/**'
     #  - 'src/*'
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -74,19 +77,31 @@ jobs:
   deploy-demo:
     needs: build
     runs-on: ubuntu-latest
-
+  
+    env:
+      REGION: ${{ vars.DEPLOY_REGION }}
+  
     steps:
       - name: Download build output
         uses: actions/download-artifact@v7
         with:
           name: web-dist
-          #name: site-build
           path: ./dist
-      
+  
+      - name: Show deployment configuration
+        run: echo "Deploying to $REGION"
+  
       - name: Inspect build output
         run: |
           ls -R dist
           cat dist/index.html
-      
+
+      - name: Verify deployment token
+        env:
+          TOKEN: ${{ secrets.DEMO_TOKEN }}
+        run: |
+          echo "A deployment token was provided"
+          test -n "$TOKEN"
+  
       - name: Deploy
         run: echo "Deploying application"
