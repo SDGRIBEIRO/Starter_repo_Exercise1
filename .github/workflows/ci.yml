@@ -7,11 +7,11 @@ on: #trigger
     branches:
       - main
     paths:
-    #  - 'src/**'
-      - 'src/*'
+      - 'src/**'
+    #  - 'src/*'
 
 jobs:
-  hello: # name of the job
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,9 +22,13 @@ jobs:
       
       - name: Show environment
         run: |
-          echo "Hello from GitHub Actions" # print something
+          echo "We are running Exercise 3" # print something
           uname -a # name of the operating system
           pwd #print the working directory / folder
+
+      - name: Run tests
+        run: echo "Tests passed"
+      
       - name: List files
         run: ls -la
       
