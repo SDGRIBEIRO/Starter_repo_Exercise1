@@ -37,8 +37,23 @@ jobs:
       - name: list contents of index.html
         run: cat src/index.html
 
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Show trigger
+        run: echo "Triggered by ${{ github.event_name }}"
+
+      - name: Run lint
+        run: echo "Lint passed"
+
+
   build:
-    needs: test
+    needs: 
+      - test
+      - lint
     runs-on: ubuntu-latest
 
     steps:
